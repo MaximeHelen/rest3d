@@ -137,9 +137,9 @@ THE SOFTWARE.
             //Conduit.renderSetBloom(bloomBias,bloomScale); 
         }
 
-        var renderTab = GUI.addTabWindow($(".ui-layout-center"), "tabsoune", "Render");
+        var renderTab = GUI.addTabWindow($(".ui-layout-center"), "tabsoune", "eg1");
         GUI.image(renderTab.find('.ui-tabs-anchor'), "img-render", "img/menu-render.png", 12, 14, "before");
-        GUI.addNewTab("tabsoune", "material", "Material", "example");
+        var materialTab = GUI.addNewTab("tabsoune", "material", "eg2");
         GUI.image($('#header-renderTab :last-child').find('.ui-tabs-anchor'), "img-material", "img/menu-scenes.png", 12, 14, "before");
 
         GUI.label("exposureTitle", "exposure = ", renderTab.find(".content"));
@@ -188,13 +188,13 @@ THE SOFTWARE.
         GUI.addCheckBox("debugSetRenderVSync", "Draw enable vsync", renderTab.find(".content"));
         GUI.label("solid", " --------------------------------------------------------- ", renderTab.find(".content"));
 
-        GUI.label("...", "list sticky button", $("#content-tabsoune"), '', "isolate");
+        GUI.label("...", "list sticky button", materialTab, "isolate");
         var egg = new Array("eg1", "eg2", "eg3", "eg4", "eg5");
-        GUI.addStickyButton("example1", egg, $("#content-tabsoune"));
+        GUI.addStickyButton("example1", egg, materialTab);
 
-        GUI.label("...", "one sticky button", $("#content-tabsoune"), '', "isolate");
+        GUI.label("...", "one sticky button", materialTab, '', "isolate");
         var item = new Array("tefa");
-        GUI.addStickyButton("example2", item, $("#content-tabsoune"));
+        GUI.addStickyButton("example2", item, materialTab);
 
         //help dialog
         window.onHelp = function () {
