@@ -41,8 +41,8 @@ CONSOLE.open = function (object) {
 
     newLayout.allowOverflow("south");
 
-    function debug() {
-        allMessage();
+    window.debug= function() {
+        window.allMessage();
         $('#message-console').show();
         $('#layout-console').hide();
         $('#mode_console').remove();
@@ -58,8 +58,8 @@ CONSOLE.open = function (object) {
         });
     };
 
-    function log() {
-        allMessage();
+    window.log = function() {
+        window.allMessage();
         $('#message-console').show();
         $('#layout-console').hide();
         $('#mode_console').remove();
@@ -75,8 +75,8 @@ CONSOLE.open = function (object) {
         });
     };
 
-    function warn() {
-        allMessage();
+    window.warn = function() {
+        window.allMessage();
         $('#message-console').show();
         $('#layout-console').hide();
         $('#mode_console').remove();
@@ -92,8 +92,8 @@ CONSOLE.open = function (object) {
         });
     };
 
-    function error() {
-        allMessage();
+    window.error=function() {
+        window.allMessage();
         $('#message-console').show();
         $('#layout-console').hide();
         $('#mode_console').remove();
@@ -109,7 +109,7 @@ CONSOLE.open = function (object) {
         });
     };
 
-    function allMessage() {
+    window.allMessage=function() {
         $('#message-console').show();
         $('#layout-console').hide();
         $('#mode_console').remove();
@@ -165,7 +165,7 @@ CONSOLE.open = function (object) {
         });
     };
 
-    var linksTool = ["allMessage();", "debug();", "error();", "log();", "warn();", "window.scriptGo();"];
+    var linksTool = ["window.allMessage();", "window.debug();", "window.error();", "window.log();", "window.warn();", "window.scriptGo();"];
     var itemTool = ["icon-list", "icon-info-sign", "icon-remove-sign", "icon-ban-circle", "icon-warning-sign ", "icon-comment"];
     GUI.toolBar("toolConsole", $('#console'), itemTool, linksTool, "top", $('#normal-button-bottom'));
     //GUI.label = function(_id,_txt, _parent,_style,_mode) 
@@ -177,7 +177,7 @@ CONSOLE.open = function (object) {
     //catch error 
 
     window.onerror = function (message, url, linenumber) {
-        var content = '<div id="debug">' + GUI.time() + '<div id="blocConsole2 class="txt-debug"><a class="ui-icon ui-icon-circle-close" id="blocConsole1"></a>';
+        var content = '<div id="error">' + GUI.time() + '<div id="blocConsole2 class="txt-error"><a class="ui-icon ui-icon-circle-close" id="blocConsole1"></a>';
         if (!url) {
             url = "indefined";
         }
